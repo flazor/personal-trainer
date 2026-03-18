@@ -1,8 +1,9 @@
-import requests                                                                                                                                     
-import json                                                                                                                                         
-import asyncio                                                                                                                                      
+import httpx
+import json
+import asyncio
+import os
 from datetime import datetime
-from pathlib import Path                                                                                                                            
+from pathlib import Path
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, CommandHandler, ContextTypes, filters
 from telegram.constants import ChatAction
@@ -34,8 +35,9 @@ def git_push_log(log_path: Path):
 
 OLLAMA_URL = "http://localhost:11434/api/chat"
 MODEL = "llama3.1:8b"
-TELEGRAM_TOKEN = "8547350887:AAFfSmHbyku_doPbMadkxzStKscAlHIiWCI"
-DATA_DIR = Path("./")
+TELEGRAM_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
+DATA_DIR = Path(__file__).parent  # repo root; run from anywhere
+
 
 # Per-chat conversation history
 conversation_history: Dict[int, List] = {}
@@ -53,7 +55,7 @@ Today's workout:
 {workout}
 
 Guide him through the session:
-1. Start by briefly listing today's exercises (no weights yet) and a bullet-point summary of the warmup. Prompt for comfirmation that warmup is complete.
+1. Start by briefly listing today's exercises (no weights yet) and a bullet-point summary of the warmup. Prompt for confirmation that warmup is complete.
 2. Introduce one exercise at a time: tell him the sets, reps, weight, rest time between sets and important cues to do the exercise correctly. Wait for him to report results after he has attempted all the sets.
 3. After each result, give brief feedback (one sentence). Note if he struggled or missed reps.
 4. Move to the next exercise. Keep it moving.
@@ -64,62 +66,62 @@ Keep every message short. No long paragraphs."""
 
 
 def build_log_prompt() -> str:
-    return """Based on our conversation, write a workout log in this exact markdown format — nothing else, no commentary:
+    return """Based on our conversation, write a workout log in this exact format — nothing else, no commentary:
 
-Warmup
-- [what he did]
+Warm-up
+
+[what he did, one item per line]
 
 [Exercise Name]
-- [sets x reps x weight as reported]
+
+[sets x reps x weight as reported, one set per line]
 
 [Next Exercise]
-- [etc.]
+
+[etc.]
 
 Notes
+
 [One sentence about how it went. If nothing notable, write "Felt good."]
 
-Only include exercises Tim actually completed and reported. Use the exact weights he mentioned."""
+Only include exercises Tim actually completed and reported. Use the exact weights he mentioned. No bullet points or dashes."""
 
 
 async def stream_to_telegram(update: Update, context: ContextTypes.DEFAULT_TYPE, messages: list) -> str:
     chat_id = update.effective_chat.id
     await context.bot.send_chat_action(chat_id=chat_id, action=ChatAction.TYPING)
 
-    response = requests.post(
-        OLLAMA_URL,
-        json={"model": MODEL, "messages": messages, "stream": True},
-        stream=True
-    )
-
     accumulated_text = ""
     sent_message = None
     last_edit_time = asyncio.get_event_loop().time()
     last_typing_time = last_edit_time
 
-    for line in response.iter_lines():
-        if not line:
-            continue
-        data = json.loads(line.decode("utf-8"))
-        accumulated_text += data.get("message", {}).get("content", "")
+    async with httpx.AsyncClient(timeout=120) as client:
+        async with client.stream("POST", OLLAMA_URL, json={"model": MODEL, "messages": messages, "stream": True}) as response:
+            async for line in response.aiter_lines():
+                if not line:
+                    continue
+                data = json.loads(line)
+                accumulated_text += data.get("message", {}).get("content", "")
 
-        now = asyncio.get_event_loop().time()
+                now = asyncio.get_event_loop().time()
 
-        if now - last_typing_time > 4:
-            await context.bot.send_chat_action(chat_id=chat_id, action=ChatAction.TYPING)
-            last_typing_time = now
+                if now - last_typing_time > 4:
+                    await context.bot.send_chat_action(chat_id=chat_id, action=ChatAction.TYPING)
+                    last_typing_time = now
 
-        if sent_message is None and len(accumulated_text) > 80:
-            sent_message = await update.message.reply_text(accumulated_text)
-            last_edit_time = now
-        elif sent_message and now - last_edit_time > 2:
-            try:
-                await sent_message.edit_text(accumulated_text)
-                last_edit_time = now
-            except Exception:
-                pass
+                if sent_message is None and len(accumulated_text) > 80:
+                    sent_message = await update.message.reply_text(accumulated_text)
+                    last_edit_time = now
+                elif sent_message and now - last_edit_time > 2:
+                    try:
+                        await sent_message.edit_text(accumulated_text)
+                        last_edit_time = now
+                    except Exception:
+                        pass
 
-        if data.get("done"):
-            break
+                if data.get("done"):
+                    break
 
     if sent_message is None:
         await update.message.reply_text(accumulated_text)
@@ -133,7 +135,7 @@ async def stream_to_telegram(update: Update, context: ContextTypes.DEFAULT_TYPE,
 
 
 async def cmd_workout(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    git_pull()
+    await asyncio.to_thread(git_pull)
     chat_id = update.effective_chat.id
     workout = load_workout()
     if not workout:
@@ -166,17 +168,18 @@ async def cmd_done(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_chat_action(chat_id=chat_id, action=ChatAction.TYPING)
 
     log_messages = history + [{"role": "user", "content": build_log_prompt()}]
-    response = requests.post(
-        OLLAMA_URL,
-        json={"model": MODEL, "messages": log_messages, "stream": False}
-    )
+    async with httpx.AsyncClient(timeout=120) as client:
+        response = await client.post(
+            OLLAMA_URL,
+            json={"model": MODEL, "messages": log_messages, "stream": False}
+        )
     log_text = response.json().get("message", {}).get("content", "").strip()
 
     date_str = datetime.now().strftime("%Y-%m-%d")
     log_path = DATA_DIR / "log" / f"{date_str}-gym.md"
     log_path.parent.mkdir(exist_ok=True)
     log_path.write_text(log_text)
-    git_push_log(log_path)
+    await asyncio.to_thread(git_push_log, log_path)
     await update.message.reply_text(f"Logged to {log_path.name}. Nice work!")
     conversation_history.pop(chat_id, None)
 
@@ -203,4 +206,3 @@ app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
 print("Bot running...")
 app.run_polling()
-
