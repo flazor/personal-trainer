@@ -15,7 +15,7 @@ next-workout.md        # Working copy of the next session (editable)
 next-workouts/         # Archive of all generated workout briefs (YYYY-MM-DD-focus.md)
 gym-log.md             # Index of logged workouts
 log/                   # Individual workout logs (YYYY-MM-DD-*.md)
-clients/               # Other training contexts (baseball, robbie, practical-exam)
+clients/               # Other training contexts (baseball, practical-exam)
 .claude/skills/        # Claude Code skill for plan generation
 ```
 
