@@ -35,8 +35,8 @@ This is an 8-week full-body strength program built around two training days per 
 | -------------------------- | ---- | ------- | ----- | ---------------------------------------------------------------------------- |
 | Barbell Bench Press        | 4    | 5       | 3 min | Start at 50 kg (71% 1RM). Add 2.5 kg/week. RPE 7                             |
 | Back Barbell Squat         | 3    | 8       | 2 min | Start at 30 kg. Controlled tempo, full depth if comfortable. Add 2.5 kg/week |
-| Barbell Row                | 3    | 8       | 90s   | Start at 35 kg. Overhand grip, pull to lower chest                           |
-| Dumbbell Romanian Deadlift | 3    | 10      | 90s   | Start at 10 kg per hand. Hinge at hips, squeeze glutes at top                |
+| Dumbbell Row (one-arm)     | 3    | 10/side | 90s   | Start at 12.5 kg. Pull to hip, squeeze shoulder blade at top                 |
+| Trap Bar Deadlift          | 3    | 8       | 2 min | Start at 50 kg. Drive through floor, neutral spine, lockout with glutes      |
 | Pallof Press               | 3    | 10/side | 60s   | Start at 7.5 kg on cable. Anti-rotation core work for pelvic stability       |
 | Hip Thrust                 | 3    | 12      | 60s   | Start at 20 kg (bar only). Key glute strengthener for APT correction         |
 
@@ -62,7 +62,7 @@ This is an 8-week full-body strength program built around two training days per 
 | Incline Dumbbell Bench Press | 3 | 8 | 90s | Start at 14 kg per hand. Supports bench 1RM from a different angle |
 | Lat Pulldown | 3 | 8 | 90s | Start at 30 kg. Wide grip — builds pulling strength for surfing pop-up |
 | Dumbbell Lunges | 3 | 10/leg | 90s | Start at 8 kg per hand. Single-leg stability, glute activation |
-| Face Pulls | 3 | 15 | 60s | Start at 5 kg on cable. Shoulder health and upper back posture |
+| Face Pulls | 3 | 15 | 60s | Start at 20 kg on cable. Shoulder health and upper back posture |
 | Dead Bug | 3 | 8/side | 60s | Bodyweight. Core stability — directly addresses anterior pelvic tilt |
 
 **Cooldown** (5 min)
