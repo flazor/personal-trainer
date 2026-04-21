@@ -37,7 +37,7 @@ This is an 8-week full-body strength program built around two training days per 
 | Back Barbell Squat         | 3    | 8       | 2 min | Start at 30 kg. Controlled tempo, full depth if comfortable. Add 2.5 kg/week |
 | Dumbbell Row (one-arm)     | 3    | 10/side | 90s   | Start at 12.5 kg. Pull to hip, squeeze shoulder blade at top                 |
 | Trap Bar Deadlift          | 3    | 8       | 2 min | Start at 50 kg. Drive through floor, neutral spine, lockout with glutes      |
-| Pallof Press               | 3    | 10/side | 60s   | Start at 7.5 kg on cable. Anti-rotation core work for pelvic stability       |
+| Hanging Knee Raises        | 3    | 10-12   | 60s   | Captain's chair or pull-up bar. Controlled raise and lower — no swinging. Builds hip flexor awareness and anti-extension core for APT |
 | Hip Thrust                 | 3    | 12      | 60s   | Start at 20 kg (bar only). Key glute strengthener for APT correction         |
 
 **Cooldown** (5 min)
@@ -104,7 +104,7 @@ This is an 8-week full-body strength program built around two training days per 
 
 **Anterior Pelvic Tilt Management**
 - Couch stretches and glute bridges are programmed into every warm-up — don't skip these
-- Hip thrusts, dead bugs, and pallof presses directly address the weak glutes and poor pelvic control
+- Hip thrusts, dead bugs, and hanging knee raises directly address the weak glutes and poor pelvic control
 - If you feel your lower back taking over during squats or deadlifts, reduce weight and focus on bracing your core
 
 **Surfing Pop-Up Performance**
