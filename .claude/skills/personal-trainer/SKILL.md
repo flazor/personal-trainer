@@ -34,9 +34,11 @@ Stop here if profile is missing.
 ## Step 4 — Load workout logs and prescribed history
 
 Use Glob to find all files matching `DATA_DIR/log/*.md`, sorted by filename ascending (chronological). Read the most recent 4–6 files. For each session extract:
-- Date (from filename or file content)
-- Exercises performed: sets, reps, weight used
+- Date (from frontmatter or filename)
+- Exercises performed: sets, reps, weight used (from the `## Session` table)
 - Any RPE, RIR, or difficulty notes
+
+Logs include a `## Transcript` section containing the raw chat between Tim and the workout bot. The structured table only captures the final result string per exercise; the transcript is where qualitative signal lives — equipment swaps, "felt heavy", form cues, exercises done out of order, anything Tim typed mid-session. Read it. When the transcript and the table disagree, trust the transcript.
 
 If no log files exist, note that this is the first session — use conservative starting weights appropriate for the client's experience level.
 
