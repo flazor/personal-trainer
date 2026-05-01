@@ -1,16 +1,19 @@
-import httpx
-import json
 import asyncio
 import os
 import re
+import subprocess
 from datetime import datetime
 from pathlib import Path
-from telegram import Update
-from telegram.ext import ApplicationBuilder, MessageHandler, CommandHandler, ContextTypes, filters
-from telegram.constants import ChatAction
 from typing import Dict
 
-import subprocess
+from telegram import Update
+from telegram.ext import ApplicationBuilder, MessageHandler, CommandHandler, ContextTypes, filters
+
+
+DATA_DIR = Path(__file__).parent
+TELEGRAM_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
+
+sessions: Dict[int, dict] = {}
 
 
 def git_pull():
@@ -18,10 +21,11 @@ def git_pull():
         ["git", "pull", "--rebase"],
         cwd=DATA_DIR,
         capture_output=True,
-        text=True
+        text=True,
     )
     if result.returncode != 0:
         print(f"git pull warning: {result.stderr.strip()}")
+
 
 def git_push_log(log_path: Path):
     git_pull()
@@ -35,18 +39,8 @@ def git_push_log(log_path: Path):
             print(f"git warning ({cmd[1]}): {result.stderr.strip()}")
             break
 
-OLLAMA_URL = "http://localhost:11434/api/chat"
-MODEL = "llama3.1:8b"
-TELEGRAM_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
-DATA_DIR = Path(__file__).parent  # repo root; run from anywhere
-
-
-# Per-chat session state
-sessions: Dict[int, dict] = {}
-
 
 def parse_workout(text: str) -> dict:
-    """Parse next-workout.md into structured exercises, warm-up, and cooldown."""
     result = {
         "frontmatter": {},
         "title": "",
@@ -92,7 +86,6 @@ def parse_workout(text: str) -> dict:
 
 
 def format_exercise(ex: dict, idx: int, total: int) -> str:
-    """Format a single exercise for display in Telegram."""
     lines = [
         f"-- Exercise {idx}/{total}: {ex['name']} --",
         f"{ex['sets']} sets x {ex['reps']} @ {ex['weight']}",
@@ -103,29 +96,15 @@ def format_exercise(ex: dict, idx: int, total: int) -> str:
     return "\n".join(lines)
 
 
-def build_coaching_prompt(workout: dict) -> str:
-    """System prompt scoped to coaching only — no exercise presentation."""
-    exercises = ", ".join(ex["name"] for ex in workout["exercises"])
-    return f"""You are a personal trainer coaching Tim through his gym session via Telegram. Be brief — he's at the gym.
-
-Today's session: {workout['title']}
-Exercises: {exercises}
-
-Rules:
-- When asked for a coaching cue, give ONE brief tip for that exercise. One or two sentences max.
-- When Tim reports results, give brief feedback (one sentence). Note if he struggled or missed reps.
-- Do NOT restate sets, reps, or weights — those are shown separately.
-- Keep every message short."""
-
-
-def build_log(session: dict, notes: str = "") -> str:
-    """Build a structured workout log from session data."""
+def build_log(session: dict) -> str:
     workout = session["workout"]
     fm = workout["frontmatter"]
     title = workout["title"].replace("Next Workout: ", "")
+    started = session["started_at"]
 
     lines = ["---"]
-    lines.append(f"date: {fm.get('date', datetime.now().strftime('%Y-%m-%d'))}")
+    lines.append(f"date: {started.strftime('%Y-%m-%d')}")
+    lines.append(f"time: {started.strftime('%H:%M')}")
     if fm.get("session"):
         lines.append(f"session: \"{fm['session']}\"")
     if fm.get("plan_week"):
@@ -143,106 +122,31 @@ def build_log(session: dict, notes: str = "") -> str:
     lines.append("| Exercise | Sets x Reps | Weight | Result | Notes |")
     lines.append("|----------|-------------|--------|--------|-------|")
 
-    completed_names = set()
-    for ex, result_text in session["results"]:
-        completed_names.add(ex["name"])
+    for idx, ex in enumerate(workout["exercises"]):
+        replies = session["results"].get(idx, [])
+        result = " / ".join(replies) if replies else "skipped"
         lines.append(
             f"| {ex['name']} | {ex['sets']}x{ex['reps']} "
-            f"| {ex['weight']} | {result_text} | |"
+            f"| {ex['weight']} | {result} | |"
         )
-
-    for ex in workout["exercises"]:
-        if ex["name"] not in completed_names:
-            lines.append(
-                f"| {ex['name']} | {ex['sets']}x{ex['reps']} "
-                f"| {ex['weight']} | skipped | |"
-            )
 
     lines.append("")
     lines.append("## Notes")
     lines.append("")
-    lines.append(notes)
-    lines.append("")
-
-    return "\n".join(lines)
-
-
-async def chat_llm(messages: list) -> str:
-    """Non-streaming LLM call for short responses."""
-    async with httpx.AsyncClient(timeout=120) as client:
-        response = await client.post(
-            OLLAMA_URL,
-            json={"model": MODEL, "messages": messages, "stream": False}
-        )
-    return response.json().get("message", {}).get("content", "").strip()
-
-
-async def stream_to_telegram(update: Update, context: ContextTypes.DEFAULT_TYPE, messages: list) -> str:
-    """Stream an LLM response to Telegram with live message updates."""
-    chat_id = update.effective_chat.id
-    await context.bot.send_chat_action(chat_id=chat_id, action=ChatAction.TYPING)
-
-    accumulated_text = ""
-    sent_message = None
-    last_edit_time = asyncio.get_event_loop().time()
-    last_typing_time = last_edit_time
-
-    async with httpx.AsyncClient(timeout=120) as client:
-        async with client.stream("POST", OLLAMA_URL, json={"model": MODEL, "messages": messages, "stream": True}) as response:
-            async for line in response.aiter_lines():
-                if not line:
-                    continue
-                data = json.loads(line)
-                accumulated_text += data.get("message", {}).get("content", "")
-
-                now = asyncio.get_event_loop().time()
-
-                if now - last_typing_time > 4:
-                    await context.bot.send_chat_action(chat_id=chat_id, action=ChatAction.TYPING)
-                    last_typing_time = now
-
-                if sent_message is None and len(accumulated_text) > 80:
-                    sent_message = await update.message.reply_text(accumulated_text)
-                    last_edit_time = now
-                elif sent_message and now - last_edit_time > 2:
-                    try:
-                        await sent_message.edit_text(accumulated_text)
-                        last_edit_time = now
-                    except Exception:
-                        pass
-
-                if data.get("done"):
-                    break
-
-    if sent_message is None:
-        await update.message.reply_text(accumulated_text)
+    if session["notes"]:
+        for note in session["notes"]:
+            lines.append(note)
+            lines.append("")
     else:
-        try:
-            await sent_message.edit_text(accumulated_text)
-        except Exception:
-            pass
+        lines.append("")
 
-    return accumulated_text
+    lines.append("## Transcript")
+    lines.append("")
+    for event in session["transcript"]:
+        lines.append(event)
+        lines.append("")
 
-
-async def send_next_exercise(update: Update, context: ContextTypes.DEFAULT_TYPE, session: dict):
-    """Send the next exercise verbatim, then stream a coaching cue from the LLM."""
-    idx = session["exercise_idx"]
-    exercises = session["workout"]["exercises"]
-
-    if idx >= len(exercises):
-        await update.message.reply_text("All exercises done! Send /done to save your log.")
-        session["phase"] = "complete"
-        return
-
-    ex = exercises[idx]
-    await update.message.reply_text(format_exercise(ex, idx + 1, len(exercises)))
-
-    session["history"].append({"role": "user", "content": f"Brief coaching cue for {ex['name']}."})
-    cue = await stream_to_telegram(update, context, session["history"])
-    session["history"].append({"role": "assistant", "content": cue})
-
-    session["phase"] = "awaiting_result"
+    return "\n".join(lines).rstrip() + "\n"
 
 
 async def cmd_workout(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -263,15 +167,16 @@ async def cmd_workout(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("Couldn't parse exercises from next-workout.md.")
         return
 
-    sessions[chat_id] = {
+    session = {
         "workout": workout,
-        "exercise_idx": 0,
-        "phase": "warmup",
-        "results": [],
-        "history": [
-            {"role": "system", "content": build_coaching_prompt(workout)},
-        ],
+        "started_at": datetime.now(),
+        "exercise_msg_ids": {},  # telegram message_id -> exercise idx
+        "results": {},  # exercise idx -> [reply text, ...]
+        "notes": [],
+        "transcript": [],
+        "phase": "active",  # "active" | "confirming_skip"
     }
+    sessions[chat_id] = session
 
     exercise_list = "\n".join(
         f"  {i+1}. {ex['name']}" for i, ex in enumerate(workout["exercises"])
@@ -280,14 +185,22 @@ async def cmd_workout(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"{workout['title']}\n\n"
         f"{exercise_list}\n\n"
         f"Warm-up:\n{workout['warmup']}\n\n"
-        f"Let me know when you're warmed up."
+        f"Reply to each exercise message with your results. "
+        f"Free-text messages become notes. Send /done when finished."
     )
     await update.message.reply_text(overview)
+    session["transcript"].append(f"**Bot:** {overview}")
+
+    for idx, ex in enumerate(workout["exercises"]):
+        text = format_exercise(ex, idx + 1, len(workout["exercises"]))
+        sent = await update.message.reply_text(text)
+        session["exercise_msg_ids"][sent.message_id] = idx
+        session["transcript"].append(f"**Bot:** {text}")
 
 
 async def cmd_quit(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.effective_chat.id
-    await update.message.reply_text("Bye!")
+    await update.message.reply_text("Session discarded.")
     sessions.pop(chat_id, None)
 
 
@@ -299,22 +212,29 @@ async def cmd_done(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("No active session. Start one with /workout.")
         return
 
-    await context.bot.send_chat_action(chat_id=chat_id, action=ChatAction.TYPING)
+    unresponded = [
+        ex for idx, ex in enumerate(session["workout"]["exercises"])
+        if idx not in session["results"]
+    ]
 
-    session["history"].append({
-        "role": "user",
-        "content": "Summarize today's session in one sentence for the workout log."
-    })
-    notes = await chat_llm(session["history"])
+    if unresponded and session["phase"] != "confirming_skip":
+        names = "\n".join(f"  - {ex['name']}" for ex in unresponded)
+        msg = (
+            f"These exercises haven't been logged:\n{names}\n\n"
+            f"Reply to add results, or send /done again to mark them skipped."
+        )
+        await update.message.reply_text(msg)
+        session["transcript"].append(f"**Bot:** {msg}")
+        session["phase"] = "confirming_skip"
+        return
 
-    log_text = build_log(session, notes=notes)
-
-    date_str = datetime.now().strftime("%Y-%m-%d")
-    log_path = DATA_DIR / "log" / f"{date_str}-gym.md"
+    log_text = build_log(session)
+    started = session["started_at"]
+    log_path = DATA_DIR / "log" / f"{started.strftime('%Y-%m-%d-%H%M')}.md"
     log_path.parent.mkdir(exist_ok=True)
     log_path.write_text(log_text)
     await asyncio.to_thread(git_push_log, log_path)
-    await update.message.reply_text(f"Logged to {log_path.name}. Nice work!")
+    await update.message.reply_text(f"Logged to {log_path.name}.")
     sessions.pop(chat_id, None)
 
 
@@ -326,43 +246,20 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("Send /workout to start your session.")
         return
 
-    text = update.message.text
-    phase = session["phase"]
+    text = update.message.text or ""
+    reply_to = update.message.reply_to_message
 
-    if phase == "warmup":
-        await send_next_exercise(update, context, session)
-
-    elif phase == "awaiting_result":
-        if "?" in text:
-            # Question — pass to LLM, stay on current exercise
-            session["history"].append({"role": "user", "content": text})
-            reply = await stream_to_telegram(update, context, session["history"])
-            session["history"].append({"role": "assistant", "content": reply})
-        elif text.strip().lower() in ("skip", "next"):
-            session["exercise_idx"] += 1
-            await send_next_exercise(update, context, session)
-        else:
-            # Result report
-            ex = session["workout"]["exercises"][session["exercise_idx"]]
-            session["results"].append((ex, text))
-
-            session["history"].append({
-                "role": "user",
-                "content": f"Result for {ex['name']} ({ex['sets']}x{ex['reps']} @ {ex['weight']}): {text}"
-            })
-            feedback = await stream_to_telegram(update, context, session["history"])
-            session["history"].append({"role": "assistant", "content": feedback})
-
-            session["exercise_idx"] += 1
-            await send_next_exercise(update, context, session)
-
-    elif phase == "complete":
-        await update.message.reply_text("Session's done. Send /done to save or /quit to discard.")
-
+    if reply_to and reply_to.message_id in session["exercise_msg_ids"]:
+        idx = session["exercise_msg_ids"][reply_to.message_id]
+        ex_name = session["workout"]["exercises"][idx]["name"]
+        session["results"].setdefault(idx, []).append(text)
+        session["transcript"].append(f"**Tim** (re: {ex_name}): {text}")
     else:
-        session["history"].append({"role": "user", "content": text})
-        reply = await stream_to_telegram(update, context, session["history"])
-        session["history"].append({"role": "assistant", "content": reply})
+        session["notes"].append(text)
+        session["transcript"].append(f"**Tim:** {text}")
+
+    # New input may resolve a previously-unresponded exercise — re-prompt on next /done
+    session["phase"] = "active"
 
 
 app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
