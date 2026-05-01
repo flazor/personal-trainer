@@ -191,7 +191,6 @@ async def cmd_workout(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
     overview = (
         f"{workout['title']}\n\n"
-        f"{exercise_list}\n\n"
         f"Warm-up:\n{workout['warmup']}\n\n"
         f"Reply to each exercise message with your results. "
         f"Free-text messages become notes. Send /done when finished."
