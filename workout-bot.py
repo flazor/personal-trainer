@@ -7,7 +7,14 @@ from pathlib import Path
 from typing import Dict
 
 from telegram import Update
-from telegram.ext import ApplicationBuilder, MessageHandler, CommandHandler, ContextTypes, filters
+from telegram.ext import (
+    ApplicationBuilder,
+    CommandHandler,
+    ContextTypes,
+    MessageHandler,
+    MessageReactionHandler,
+    filters,
+)
 
 
 DATA_DIR = Path(__file__).parent
@@ -175,6 +182,7 @@ async def cmd_workout(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "notes": [],
         "transcript": [],
         "phase": "active",  # "active" | "confirming_skip"
+        "done_prompted": False,
     }
     sessions[chat_id] = session
 
@@ -260,6 +268,55 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # New input may resolve a previously-unresponded exercise — re-prompt on next /done
     session["phase"] = "active"
+    await maybe_prompt_done(update, session)
+
+
+async def maybe_prompt_done(update: Update, session: dict):
+    if session["done_prompted"]:
+        return
+    total = len(session["workout"]["exercises"])
+    if len(session["results"]) < total:
+        return
+    msg = "All exercises logged. Tap /done to save."
+    await update.effective_chat.send_message(msg)
+    session["transcript"].append(f"**Bot:** {msg}")
+    session["done_prompted"] = True
+
+
+def _emojis(reactions) -> set:
+    out = set()
+    for r in reactions or []:
+        emoji = getattr(r, "emoji", None)
+        if emoji:
+            out.add(emoji)
+    return out
+
+
+async def handle_reaction(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    chat_id = update.effective_chat.id
+    session = sessions.get(chat_id)
+    if not session:
+        return
+
+    reaction = update.message_reaction
+    if not reaction:
+        return
+
+    msg_id = reaction.message_id
+    if msg_id not in session["exercise_msg_ids"]:
+        return
+
+    added = _emojis(reaction.new_reaction) - _emojis(reaction.old_reaction)
+    if not added:
+        return
+
+    idx = session["exercise_msg_ids"][msg_id]
+    ex_name = session["workout"]["exercises"][idx]["name"]
+    emoji_str = " ".join(sorted(added))
+    session["results"].setdefault(idx, []).append(emoji_str)
+    session["transcript"].append(f"**Tim** (reaction on {ex_name}): {emoji_str}")
+    session["phase"] = "active"
+    await maybe_prompt_done(update, session)
 
 
 app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
@@ -267,6 +324,7 @@ app.add_handler(CommandHandler("workout", cmd_workout))
 app.add_handler(CommandHandler("done", cmd_done))
 app.add_handler(CommandHandler("quit", cmd_quit))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+app.add_handler(MessageReactionHandler(handle_reaction))
 
 print("Bot running...")
-app.run_polling()
+app.run_polling(allowed_updates=Update.ALL_TYPES)
