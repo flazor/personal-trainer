@@ -1,11 +1,53 @@
 ---
 created: 2026-05-08
+revised: 2026-05-11
 duration_weeks: 6
 goal: Increase overall strength with focus on bench press 1RM and surfing pop-up performance
 days_per_week: 2
 experience_level: beginner
 ---
 # Training Plan: Bench Rehab Bridge → 1RM Test
+
+## Race Week Interrupt — Week 11 (2026-05-11 → 2026-05-17)
+
+Tim was asked to run a **16 km / 2000 ft vert trail relay leg on Saturday 2026-05-16** and committed to his team. Race is non-negotiable. This is a one-week interrupt to the strength block; normal programming resumes Tuesday 2026-05-19.
+
+**Running context**
+- Age 50, deep running base (35+ years, track/CC → 5k–100 mi trail)
+- Recent 5k flat: **19:39** two weeks ago — strong aerobic engine still present
+- Last 6 months: only 1–2 runs/week at 5–10 km, no sustained climbing or descending
+- 16 km / 610 m vert is a manageable distance, but quads + climbing-specific muscles are undertrained
+
+**Risk profile**
+1. Quad damage on descents — biggest threat to finishing well (and to recovery)
+2. Climbing-specific cardiac drift in the first big ascent if he starts too hard
+3. DOMS from new movement patterns if he tries to "cram" hill training this week
+
+**Week plan**
+
+| Day | Date | Session |
+|-----|------|---------|
+| Mon | 05-11 | Rest, or 20 min flat easy walk. No gym, no run today |
+| Tue | 05-12 | **Race-specific run.** 35–45 min easy on trail. Include one 5–8 min sustained climb + descent at race effort. *Do not race the hill — rehearse it.* Practice power-hiking the steepest pitches |
+| Wed | 05-13 | **Gym (revised — upper focus).** See `next-workout.md`. No heavy squat, no trap bar, no loaded hip thrust. 72 h to race — legs must stay fresh |
+| Thu | 05-14 | Rest, or 20 min very easy flat jog/walk. Couch stretch + glute bridges |
+| Fri | 05-15 | 12–15 min very easy jog + 3 × 20 s strides on flat. Race-day shoes on. Hydrate well |
+| Sat | 05-16 | **RACE.** See pacing notes below |
+| Sun | 05-17 | Active recovery — 20–30 min walk. Foam roll quads, calves. No running |
+
+**Race pacing (Sat 05-16)**
+- Goal: finish strong, win age group if conditions allow, don't blow up
+- Pace target on flat sections: ~4:15–4:30/km (slower than 5k pace — this is 16 km)
+- First 4 km / first big climb: hold back. Effort should feel "comfortably hard," not "uncomfortable"
+- Climbs >15 % grade: **power-hike with hands-on-knees drive**. It is faster and cheaper than running them at this fitness
+- Descents: short stride, high cadence (180+), don't brake with quads. Lean slightly forward, let gravity do the work. This is where you save / lose 90 seconds and your next week of walking
+- Fueling: 1 gel at ~45 min if effort is sustained over 75 min total. Carry 250–500 ml fluid depending on temp
+- Last 3 km: this is where the 35 years of racing matters. If anything is in the tank, spend it here, not on the first climb
+
+**Post-race**
+- Expect 3–5 days of quad DOMS regardless of how well it goes
+- Resume normal gym Tuesday 2026-05-19 — but the squat may need to drop a notch (back to 45 kg × 4×5) if DOMS lingers. Use feel, not the calendar
+- Bench progression is unaffected by the race — hand is the gate, not the legs
 
 ## Overview
 
