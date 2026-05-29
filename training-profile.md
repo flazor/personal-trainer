@@ -27,5 +27,6 @@
 ## Training Preferences
 - **Available Days**: Tuesdays and Fridays
 - **Equipment**: Commercial gym, prefers free weights, rowing or skierg. Not interested in treadmill or stationary bike
+- **Equipment quirks**: Lat pulldown machine stack jumps 45 kg → 52 kg (no 50 kg increment). Use rep-progression across that 7 kg gap rather than expecting a clean small bump.
 - **Preferred Exercises**: Open to suggestions, no strong preferences yet; corrective work should include couch stretches and glute bridges
 - **Avoided Exercises**: None
