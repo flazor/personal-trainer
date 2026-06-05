@@ -35,7 +35,9 @@ Tue → Wed is back-to-back. Tuesday is quad-dominant (squat, trap bar); Wednesd
 
 ## Hand status — cleared
 
-On 05-28 Tim benched **50 kg × 4×5, pain-free** ("Hand felt fine at 50 kg — no twinge"). That was the threshold weight the whole last block was creeping toward. The symptom-cap is **lifted**: bench resumes normal linear progression from 52.5 kg (his pre-injury working weight). The only rule that survives: *stop the set on any twinge and report it* — but we're no longer programming around it.
+On 05-28 Tim benched **50 kg × 4×5, pain-free** ("Hand felt fine at 50 kg — no twinge"). That was the threshold weight the whole last block was creeping toward. The symptom-cap is **lifted** and the hand is no longer the limiter — *stop the set on any twinge and report it*, but we're no longer programming around it.
+
+**Update 06-05:** the step to 52.5 kg didn't take — 50 kg felt "very shaky" and the session moved to the chest press machine. Not a hand issue, a stability one. So linear progression resumes from a *re-consolidated* 50 kg, not 52.5. See Progression Guidelines.
 
 ## Weekly Schedule
 
@@ -64,18 +66,20 @@ Four lifts. The heavy lower-body day.
 
 ### Day 2 — Wednesday (Home): Single-Leg, Posterior, Pull & Climb
 
-Equipment: adjustable dumbbells, pull-up bar, hangboard, bodyweight. Lower stakes — no clock. Posterior/upper biased so it sits well the day after Tuesday's squat.
+Equipment: adjustable dumbbells, pull-up bar, hangboard, bodyweight. Lower stakes — no clock. Posterior/upper biased so it sits well the day after Tuesday's squat. **As of 06-10 this day also carries a light bench-stability press** (DB floor press) to add a second weekly pressing exposure — the fix for the shaky barbell bench.
 
 **Warm-up** (6 min)
 - Couch stretch: 60s per side (APT — don't skip)
 - Glute bridges: 2 x 10 (squeeze hard, 2s hold)
 - Leg swings (front/back + lateral): 10 each per leg
 - Band pull-aparts or scap pulls on the bar: 2 x 15
+- Scap push-ups: 1 x 10 (prep the shoulders for the floor press)
 
 | Exercise | Sets | Reps | Rest | Notes |
 |----------|------|------|------|-------|
 | DB Bulgarian Split Squat | 3 | 8/leg | 90s | Single-leg strength for pop-up. **By feel** — if Tuesday's squat left the legs sore, drop the load or reps; don't grind |
 | DB Romanian Deadlift | 3 | 10 | 90s | Posterior chain + glute — APT correction. Hinge from the hips, slight knee bend, neutral spine |
+| DB Floor Press | 3 | 8 | 90s | **Bench-stability fix — the priority press of this day, don't cut it.** Lie on the floor, DBs in each hand. 3s eccentric, pause when the triceps touch the floor, press with a tight controlled groove. The independent DBs build the stabilizers that felt shaky under the bar. **RPE 6-7 — this is grooving the pattern, not a grind.** Start 15 kg/hand; chase clean reps, not load |
 | Pull-ups | 3 | 6-8 | 90s | Vertical pull + climbing carryover. Band-assisted or partials if needed; chin-ups OK |
 | DB Overhead Press | 3 | 8 | 90s | Vertical push — the only OHP in the week. Brace the core, don't arch the low back (APT) |
 | Hangboard hangs *(optional)* | 3-5 | 10s | 60s | Climbing grip maintenance. By feel — skip if fingers are tired |
@@ -114,8 +118,9 @@ Four lifts. The bench-1RM day.
 
 **Bench (Friday)** — the priority lift now off the injury cap:
 - 4×5 clean at RPE ≤ 8 → +2.5 kg next Friday
-- Resume at 52.5 kg (pre-injury working weight; 50 kg was clean and pain-free 05-28)
-- Incline DB advances 2.5 kg/hand (gym ladder) when 3×8 is clean
+- **Re-consolidate at 50 kg.** On 06-05 the jump to 52.5 was abandoned — 50 kg itself felt "very shaky" on the first working set and the session moved to the chest press machine. This was a *stability* problem, not a hand twinge, so it's a normal "repeat the weight until it's clean" situation, not an injury flag. Next bench day repeats **50 kg × 4×5** and the goal is four stable sets before 52.5 is on the table again.
+- **Frequency fix is now live:** the shakiness is bench frequency (once/week), so Wednesday's home day carries a light **DB floor press** (3×8, RPE 6-7) as a second weekly pressing exposure. It's grooving stability between Friday sessions — keep it light and technical; the Friday barbell bench stays the only place load gets chased.
+- Incline DB advances 2.5 kg/hand (gym ladder) when 3×8 is clean. Held at 15 kg on 06-05 (backed off the 17.5 bump after the shaky barbell work) — repeat 15 kg, earn 17.5 with a clean 3×8.
 
 **Squat (Tuesday)** — standard linear: hit 4×5 at RPE ≤ 8 → +2.5 kg next Tuesday. Re-entry ladder: 50 → 52.5 → 55 → 57.5 → 60.
 
