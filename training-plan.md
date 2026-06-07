@@ -1,6 +1,6 @@
 ---
 created: 2026-06-04
-revised: 2026-06-04
+revised: 2026-06-07
 duration_weeks: 6
 goal: Increase overall strength with focus on bench press 1RM and surfing pop-up performance
 days_per_week: 3
@@ -22,6 +22,15 @@ So the structure is rebuilt around **adherence first**:
 2. **One HOME day** — single-leg, posterior-chain, pull, and climbing work done at home with adjustable dumbbells, a pull-up bar, hangboard, and bodyweight. No commute, no gym-anxiety clock, low stakes.
 
 Goals are unchanged: overall strength, bench press 1RM, faster surfing pop-up.
+
+## Surf-paddling add (2026-06-07)
+
+First surf back on 06-06 after **months** out of the water: pop-ups felt good (the explosive-press + single-leg work is carrying), but **paddling arms fatigued fast** — and the fatigue localized in the **shoulders and the back/neck holding the prone arch**, not the lats/triceps. That reads as **postural and shoulder endurance to hold the paddle position**, compounded heavily by detraining — not a strength gap. Two responses, both light/high-rep, neither one allowed to bloat the short gym days:
+
+1. **SkiErg paddle finisher on Tuesday** — the gym's closest analog to the paddle stroke; sustained-pull conditioning. Lives on Tuesday (not Friday) so it's well clear of weekend surf. Replaces the throwaway warm-up skierg with a purposeful block.
+2. **Prone Y-T-W + cobra holds on Wednesday** — endurance for the exact shoulders/upper-back that quit, plus the arch-hold. Cued glute-braced / ribs-down so the extension is thoracic, not lumbar — keeps it from feeding the APT.
+
+The cable straight-arm pulldown was considered and dropped: redundant with the lat pulldown and it would break the 4-lift gym rule. **The biggest lever is water time** — months off is most of the cause; this work accelerates the rebuild, it doesn't replace paddling.
 
 ## Schedule & recovery logic
 
@@ -45,8 +54,7 @@ On 05-28 Tim benched **50 kg × 4×5, pain-free** ("Hand felt fine at 50 kg — 
 
 Four lifts. The heavy lower-body day.
 
-**Warm-up** (8 min)
-- 3 min light rowing or skierg
+**Warm-up** (7 min) — *skierg moved out of the warm-up; it's now the purposeful paddle finisher below*
 - Couch stretch: 60s per side (APT — hip flexors)
 - Glute bridges: 2 x 10 (squeeze hard, 2s hold)
 - Leg swings + bodyweight squats: 2 x 10
@@ -58,6 +66,9 @@ Four lifts. The heavy lower-body day.
 | Trap Bar Deadlift | 3 | 6 | 2 min | Hinge / posterior chain. Chronically skipped last block — non-negotiable here. Reintroduce conservatively, then progress |
 | Lat Pulldown | 3 | 8-10 | 90s | Vertical pull — surfing-pop-up driver. Stack jumps 45→52 (no 50); use rep progression across the gap |
 | Hanging Leg Raises | 3 | 10 | 60s | Anti-extension core for APT. Slow descent, no swinging |
+
+**Paddle finisher** (~10 min) — *surf-paddling conditioning, on Tuesday so it's clear of weekend surf*
+- SkiErg: 6–8 × 40s hard / 20s easy. Sustained, strong pulls that mirror the paddle stroke — build the local endurance that gives out paddling, not a sprint. By feel on the round count; stop when the pulls get sloppy.
 
 **Cooldown** (5 min)
 - Couch stretch: 60s per side
@@ -82,6 +93,8 @@ Equipment: adjustable dumbbells, pull-up bar, hangboard, bodyweight. Lower stake
 | DB Floor Press | 3 | 8 | 90s | **Bench-stability fix — the priority press of this day, don't cut it.** Lie on the floor, DBs in each hand. 3s eccentric, pause when the triceps touch the floor, press with a tight controlled groove. The independent DBs build the stabilizers that felt shaky under the bar. **RPE 6-7 — this is grooving the pattern, not a grind.** Start 15 kg/hand; chase clean reps, not load |
 | Pull-ups | 3 | 6-8 | 90s | Vertical pull + climbing carryover. Band-assisted or partials if needed; chin-ups OK |
 | DB Overhead Press | 3 | 8 | 90s | Vertical push — the only OHP in the week. Brace the core, don't arch the low back (APT) |
+| Prone Y-T-W Raises | 2 | 12 each | 60s | **Surf-paddling shoulder endurance** — face-down on the floor or an incline, light DBs or no weight. Y, then T, then W shapes. Glutes squeezed, ribs down — lift from the upper back, not the low back (APT). Slow, no momentum |
+| Cobra / Prone Holds | 3 | 20–30s | 45s | **Paddle-position endurance** — prone, chest/sternum lifted, gaze down. Drive the lift from the mid/upper back with glutes engaged; do NOT crank the low back. This is the arch you hold while paddling |
 | Hangboard hangs *(optional)* | 3-5 | 10s | 60s | Climbing grip maintenance. By feel — skip if fingers are tired |
 
 **Optional pop-up finisher:** 3 x 5 explosive push-ups (push hard enough that the hands leave the floor) — trains the fast press off the deck.
