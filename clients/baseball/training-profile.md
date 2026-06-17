@@ -3,12 +3,12 @@
 - **Name**: Mookie
 - **Birth date**: 2010-08-12
 - **Height**: 175 cm
-- **Weight**: 62 kg
+- **Weight**: 65 kg
 
 ## Activity & Experience
-- **Experience Level**: Beginner (gym/weights)
-- **Experience Details**: Completed ~5 weeks of foundation strength training (goblet squats, trap bar DL, DB bench, rows, etc.). Winter background in basketball and occasional running. Limited sprint training.
-- **Current Activity**: Baseball (practice Tues/Wed/Thurs, games Sat or Sun), gym training Mon/Fri
+- **Experience Level**: Beginner to the gym. But experienced athlete (baseball, basketball, running) for a 15 yr old.
+- **Experience Details**: has been working on a foundational strength training (goblet squats, trap bar DL, DB bench, rows, etc.). 
+- **Current Activity**: Baseball (practice Tues/Wed/Thurs, games Sat and/or Sun). Throws and works on fielding, taking ground balls, seperate from practice on M/W/F
 
 ## Medical History
 - **Health Issues**: None
@@ -16,14 +16,14 @@
 
 ## Goals
 - **Primary Goals**:
-	- Prepare for MLB Edge camp U16 tournament assessment (May 2026, 5 weeks out)
-	- Assessment areas: pull-down velocity (throwing), 50m dash, batting power, infielding explosivity/agility
+	- Become a strong baseball player in-season while on summer break from school. 
 - **Secondary Goals**:
 	- Continue building general strength and power foundation
 
 ## Training Preferences
-- **Frequency**: 2 days/week (gym)
-- **Available Days**: Mondays and Fridays
+- **Frequency**: Mookie is eager to go to the gym most days mon-thurs
+- **Available Days**: Mon, Tues, Wed, Thurs. 
+  **Schedule Considerations**: Games on Sat and/or Sun. Sometimes double headers. Fridays usually rest days to be rested for games.
 - **Equipment**: Commercial gym, prefers free weights.
 - **Preferred Exercises**: Open to suggestions, no strong preferences yet
 - **Avoided Exercises**: None

@@ -1,144 +1,145 @@
 ---
-created: 2026-04-11
-duration_weeks: 5
-goal: MLB Edge camp U16 assessment prep — sprint speed, throwing velocity, batting power, infielding agility
-days_per_week: 2
+created: 2026-06-17
+duration_weeks: 8
+goal: In-season strength & power for baseball (shortstop) while staying fresh for games
+days_per_week: 3
 experience_level: beginner
 ---
 
-# Training Plan: MLB Edge Camp Assessment Prep
+# Training Plan: Summer In-Season Strength & Power (Shortstop)
 
 ## Overview
 
-A 5-week peaking program to prepare Mookie for an MLB Edge camp U16 assessment. The assessment tests pull-down velocity (throwing), 50m dash, batting power, and infielding explosivity/agility. Mookie has a solid base from ~5 weeks of foundation strength training plus winter basketball, but limited sprint-specific training.
+Mookie is a 15-year-old, athletic two-way player (primary position: shortstop, light
+pitching) who is new to structured lifting but well-trained as an athlete. The goal this
+summer is to **build real strength and power while staying fresh for games** — not to grind
+him into the ground on top of an already heavy baseball week (practice Tue/Wed/Thu, throwing
+& fielding M/W/F, games Sat and/or Sun).
 
-Gym training is Monday and Friday, working around baseball practice (Tues/Wed/Thurs) and games (Sat/Sun). Every gym session prioritizes speed and power work while fresh, followed by supporting strength work. Volume is kept moderate to avoid interference with on-field baseball training.
+**Speed, agility, and med-ball/throwing power are handled at baseball training**, so the gym
+stays focused on **strength and resistance-based power** with no duplication. The plan is
+**3 lifting days** on a Lower / Push / Pull split, built around the baseball calendar:
 
-**Three phases:**
-- **Weeks 1–2 (Build)**: Introduce speed/power movements, learn sprint and plyometric mechanics, moderate intensity (RPE 7–8)
-- **Weeks 3–4 (Peak)**: Increase intensity, extend sprint distances to full 50m, max-effort med ball and plyometric work (RPE 8–9)
-- **Week 5 (Taper)**: Cut volume in half, maintain intensity, prioritize recovery and sharpness for assessment
+- **Monday — Lower Body (Strength & Power)** (no practice that day → the heaviest session, and
+  the furthest point from weekend games for recovery). Hinge- and single-leg-dominant.
+- **Tuesday — Upper Body Push (Strength & Power)** (lifted *before* practice; pressing strength
+  plus a power option, overhead volume kept moderate to protect the throwing arm)
+- **Thursday — Upper Body Pull + Squat (Strength)** (lifted *before* practice; pull-dominant
+  for shoulder health, plus a squat pattern to balance Monday's hinge work — kept moderate so
+  the legs are fresh for Sat/Sun games)
 
----
+Across the week this covers every movement pattern: hinge (Mon), single-leg (Mon), squat (Thu),
+horizontal & vertical push (Tue), horizontal & vertical pull (Thu), and core. Pulling volume
+exceeds pressing volume — important for a thrower's shoulder.
+
+**Youth-athlete note:** technique and full range of motion come before load. Every working
+set leaves 2–3 reps in reserve (RPE 7–8). No 1-rep-max testing. This is how a 15-year-old
+builds strength safely and keeps progressing for years.
 
 ## Weekly Schedule
 
-### Day 1 — Monday: Speed + Lower Body Power
+### Day 1 — Monday: Lower Body (Strength & Power)
 
-**Warm-up** (8–10 min)
-- Light jog or skip: 3 min
-- A-skips: 2 × 20 m
-- High knees: 2 × 20 m
-- Leg swings (forward/back, then side/side): 10 each leg
-- Hip circles: 10 each direction
-- Build-up sprints: 3 × 30 m at 60%, 75%, 85%
+No practice on Mondays, so this is the day to push lower-body strength. A short power primer
+goes first while the nervous system is fresh, then the heavy work. Hinge- and single-leg-focused
+(the squat pattern lives on Thursday).
 
-**Sprint Work** (do first while fresh — full recovery between reps)
-
-| Exercise | Sets | Reps | Rest | Notes |
-|----------|------|------|------|-------|
-| 10 m Sprint (standing start) | 4 | 1 | Walk back + 60s | Drive phase — low, powerful, 45° lean; Weeks 3+ reduce to 2 reps |
-| 30 m Sprint | 3 | 1 | Walk back + 90s | Transition from drive to upright; Weeks 3+ reduce to 2 reps |
-| 50 m Sprint | — | — | — | Add in Week 3: 2 reps with full recovery (3 min); this is the test distance |
-
-**Power & Strength**
+**Warm-up** (8-10 min)
+- 5 min easy bike or row
+- Leg swings (front/back, side/side), hip circles, walking lunges, deep bodyweight squats
+- Ankle mobility (knee-to-wall) and a few low pogo hops to prime the legs
 
 | Exercise | Sets | Reps | Rest | Notes |
 |----------|------|------|------|-------|
-| Box Jump | 3 | 5 | 90s | Step down between reps, reset fully; 40–50 cm box; focus on landing soft |
-| Trap Bar Deadlift | 3 | 5 | 2 min | Explosive concentric — pull fast; controlled lowering; primary hip power driver |
-| Lateral Bound (stick landing) | 3 | 5 each side | 90s | Bound laterally, stick the landing 2 sec; builds lateral quickness for fielding |
-| Bulgarian Split Squat | 3 | 8 each leg | 90s | Controlled tempo; rear foot elevated on bench; builds single-leg stability |
+| Box Jump (step down to land) | 4 | 3 | 90s | Power primer; soft, controlled landing. Optional — skip if he's getting plenty of jumps/plyo at training |
+| Trap Bar Deadlift | 3 | 5 | 2-3min | Main strength lift. Brace, push the floor away. Leave 2-3 in reserve |
+| Bulgarian Split Squat (DB) | 3 | 8/leg | 90s | Control the descent; knee tracks over toe. Single-leg strength + balance |
+| Romanian Deadlift | 3 | 8 | 90s | Hamstrings & glutes for sprinting/deceleration. Hinge at hips, soft knees, feel the stretch |
+| Pallof Press (cable/band) | 3 | 10/side | 60s | Anti-rotation core — resist the pull, don't let torso twist |
+| Standing Calf Raise *(optional)* | 2 | 12 | 60s | Ankle stiffness for sprinting; full range |
 
-**Core**
+**Cooldown**
+- Easy walk 2-3 min, then static stretch: hip flexors, hamstrings, quads, calves (20-30s each)
 
-| Exercise | Sets | Reps | Rest | Notes |
-|----------|------|------|------|-------|
-| Pallof Press | 3 | 10 each side | 60s | Anti-rotation — resist the cable pull; critical for throwing and batting stiffness |
+### Day 2 — Tuesday: Upper Body Push (Strength & Power)
 
-**Cooldown** (5 min)
-- Hip flexor stretch (kneeling lunge): 30s each side
-- Hamstring stretch (standing): 30s each side
-- Calf stretch (wall lean): 30s each side
-- Quad stretch (standing): 30s each side
+Lifted **before** practice — keep it crisp so he's not gassed for fielding. Pressing strength
+with a power option up top; overhead volume kept moderate for throwing-arm health. A few sets
+of face pulls keep the shoulders balanced even on a push day.
 
----
-
-### Day 2 — Friday: Rotational Power + Upper Body + Agility
-
-**Warm-up** (8–10 min)
-- Light jog: 3 min
-- Band pull-aparts: 15 reps (shoulder prehab — non-negotiable for a thrower)
-- Arm circles (forward and back): 10 each
-- Thoracic rotations (hands behind head): 10 each side
-- Lateral shuffles: 2 × 10 m each direction
-- Carioca: 2 × 10 m each direction
-
-**Agility** (do first while fresh)
+**Warm-up** (8-10 min)
+- 5 min row or arm bike
+- Band pull-aparts, arm circles, scapular push-ups, thoracic rotations
+- 1-2 light warm-up sets of the bench press
 
 | Exercise | Sets | Reps | Rest | Notes |
 |----------|------|------|------|-------|
-| 5-10-5 Pro Agility Shuttle | 4 | 1 | 90s | Explode laterally, plant hard, sprint through; stay low on cuts |
-| Lateral Shuffle to Sprint | 3 | 1 each direction | 90s | Shuffle 5 m, plant, sprint 10 m forward; mimics fielding-to-throw transition |
+| Barbell Bench Press | 3 | 6 | 2min | Main press. Controlled; 2-3 reps in reserve. Don't flare elbows |
+| Dumbbell Push Press *(or strict OHP)* | 3 | 6 | 90s | Vertical push with leg drive = power. Moderate load for throwing-arm care. Ribs down, no big arch |
+| Incline Dumbbell Press | 3 | 10 | 75s | Upper-chest accessory |
+| Lateral Raise | 3 | 12 | 45s | Shoulder health and width; light and controlled |
+| Overhead Triceps Extension | 3 | 10 | 60s | Triceps for pressing strength |
+| Face Pull | 3 | 15 | 45s | Rear delts + cuff — keeps pulling balanced even on push day |
 
-**Rotational Power**
+**Cooldown**
+- Doorway pec stretch, lat stretch, sleeper/cross-body shoulder stretch (gently), 20-30s each
+
+### Day 3 — Thursday: Upper Body Pull + Squat (Strength)
+
+Lifted **before** practice and two days out from weekend games. Pull-dominant for shoulder
+health, opened with a squat pattern to balance Monday's hinge work. **Keep the squat moderate**
+(2-3 reps in reserve) — this is not a leg-trashing day; the legs need to be fresh for Sat/Sun.
+
+**Warm-up** (8-10 min)
+- 5 min row or bike
+- Band pull-aparts, scapular pull-ups/dead hangs, thoracic rotations
+- Leg swings, hip circles, bodyweight squats (we squat today), 1 light set of the goblet squat
 
 | Exercise | Sets | Reps | Rest | Notes |
 |----------|------|------|------|-------|
-| Med Ball Rotational Throw (wall) | 3 | 5 each side | 90s | Max intent — drive through hips, whip the ball; mimics swing and throw |
-| Med Ball Overhead Slam | 3 | 8 | 60s | Full hip extension, slam hard into floor; total-body power |
+| Goblet Squat *(progress to Front Squat)* | 3 | 8 | 90s | Squat pattern to balance Monday's hinges. Keep moderate — fresh legs for the weekend. Chest tall, full depth |
+| One-Arm Dumbbell Row | 3 | 10/side | 75s | Horizontal pull. Pull to hip, squeeze the shoulder blade |
+| Lat Pulldown *(or assisted chin-up)* | 3 | 8-10 | 75s | Vertical pull. Full stretch at top, drive elbows down |
+| Face Pull | 3 | 15 | 45s | Rear delts + rotator-cuff health — high reps, light, controlled |
+| Band External Rotation | 2 | 15/side | 45s | Direct rotator-cuff prehab for the throwing arm. Elbow pinned to side |
+| Biceps Curl | 3 | 10 | 60s | He enjoys these; also elbow/forearm health for a thrower |
+| Hanging Leg Raise *(optional)* | 2 | 10 | 60s | Core |
 
-**Upper Body Strength**
-
-| Exercise | Sets | Reps | Rest | Notes |
-|----------|------|------|------|-------|
-| Lat Pulldown | 3 | 8 | 90s | Pull to upper chest, squeeze lats; builds pulling power for throwing decel |
-| Dumbbell Bench Press | 3 | 8 | 90s | Controlled lowering, explosive press; upper body pushing power |
-| One-Arm Dumbbell Row | 3 | 8 each | 90s | Heavy, controlled; lat and back strength for throwing |
-
-**Core**
-
-| Exercise | Sets | Reps | Rest | Notes |
-|----------|------|------|------|-------|
-| Dead Bug | 3 | 8 each side | 60s | Lower back flat to floor; core stability for all assessment movements |
-
-**Cooldown** (5 min)
-- Lat stretch (arm overhead, lean to side): 30s each side
-- Shoulder cross-body stretch: 30s each side
-- Seated spinal rotation: 30s each side
-- Band-assisted chest stretch: 30s
-
----
+**Cooldown**
+- Lat stretch, cross-body shoulder stretch, quad/hip-flexor stretch (we squatted), 20-30s each
 
 ## Progression Guidelines
 
-**Weeks 1–2 (Build):**
-- Sprint work: focus on mechanics, not max speed — cue "fast but controlled"
-- Plyometrics: lower box height, emphasize landing quality
-- Med ball: learn the movement pattern, build to ~80% effort by end of Week 2
-- Weights: start conservative since no recent logs; progress 2 kg on DB exercises, 5 kg on trap bar if form is clean
-
-**Weeks 3–4 (Peak):**
-- Sprint work: add 50m sprints (2 reps per session); reduce shorter sprint volume to compensate
-- Plyometrics: raise box height if landing quality is solid
-- Med ball: max effort on every rep
-- Weights: push for a personal best on trap bar DL; maintain or slightly increase DB weights
-- Agility: increase shuttle intensity — these should feel like game speed
-
-**Week 5 (Taper):**
-- Cut all sets in half (e.g., 3 sets → 2 sets)
-- Keep intensity high — same weights, same sprint effort
-- Sprint work: 2–3 quality 50m sprints only
-- Skip plyometrics and agility drills — save the legs
-- Monday session is the last real training day; Friday is optional light movement only if assessment is Saturday/Sunday
-- Prioritize sleep, nutrition, and hydration
-
----
+- **Strength lifts (trap bar, bench, push press, rows, goblet squat):** when he hits the top of
+  the prescribed reps on all sets at RPE ≤ 8, add load next week — ~2.5 kg upper body, ~5 kg
+  lower body. Beginner linear progression; expect steady weekly jumps early.
+- **Single-leg & accessory work:** add reps toward the top of the range first, then add load.
+- **Box jumps:** for power, never fatigue — full recovery between sets. Progress by height/quality,
+  not reps. If output drops, the set is over.
+- **Deload:** every 4th week (weeks 4 and 8), cut working-set volume ~40% (e.g. 2 sets instead
+  of 3, drop the heaviest top sets) while keeping the movements. Weekend doubleheaders or a
+  heavy game stretch count as extra load — back off the next lift if he shows up beat-up.
+- **Auto-regulate around games:** if Saturday/Sunday were rough (doubleheader, long innings at
+  SS, lots of throwing), make Monday's first sets lighter and add a set back only if he feels good.
 
 ## Notes
 
-- **Sprint mechanics matter**: At this level, technique improvements yield bigger speed gains than strength gains. Cue: drive the ground behind you, pump the arms, stay relaxed in the face and shoulders.
-- **Med ball throws are key**: Rotational med ball work directly transfers to both batting power and throwing velocity. Go heavy enough to require effort but light enough to move fast (3–5 kg ball).
-- **Shoulder care**: Band pull-aparts in every warm-up protect the throwing shoulder. With 3 days of baseball practice plus games, the shoulder is under heavy load — gym work should support it, not add risk.
-- **Recovery is training**: With 5–6 active days per week (3 baseball + 1–2 games + 2 gym), recovery becomes critical. Sleep 8+ hours, eat enough protein, stay hydrated.
-- **No new exercises after Week 3**: The last two weeks should feel familiar and confident — no learning curve, just execution.
+- **The gym is for strength and power; the field handles speed work.** Sprints, agility, and
+  med-ball/throwing power happen at baseball training — they're deliberately kept out of the gym
+  so he's not doubling the same stimulus and digging a recovery hole.
+- **Games come first.** Lifting supports baseball, it doesn't compete with it. If he's sore or
+  flat, drop a set or reduce load — never skip games or skill work to "make" a lift.
+- **Throwing-arm care is non-negotiable.** Keep pulling volume ≥ pushing volume, do the face
+  pulls and band external rotations, and never lift heavy overhead the day before he throws hard
+  or pitches. On the rare week he pitches, treat the next day as light.
+- **Lifting before practice (Tue/Thu):** keep these sessions to ~45 min and stop with a little
+  in the tank so fielding/skill work isn't compromised. Heavy lower-body work stays on Monday;
+  Thursday's squat stays moderate.
+- **Friday is a true rest day** to be fresh for weekend games — no lifting.
+- **Schedule flexibility:** if a game gets added Friday or a practice moves, slide the nearest
+  lift earlier or drop it rather than stacking two hard days back-to-back. Monday lower is the
+  one session worth protecting; Thursday is the most expendable.
+- **Hydration, sleep, food:** a 15-year-old training and playing this much needs to eat and
+  sleep enough to grow and recover. That's where the gains actually happen.
+- **Re-check in ~4 weeks** (after the first deload) to progress loads and adjust the plan as
+  school/fall ball approaches.
